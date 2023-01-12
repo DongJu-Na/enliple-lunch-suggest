@@ -2,10 +2,24 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use(
-    '/api',
+    '/hiworks',
     createProxyMiddleware({
-      target: 'https://hooks.hiworks.com/messenger/chat/55ed0406b390ff42e76333428dfc2db6',
+      target: 'https://hooks.hiworks.com',
       changeOrigin: true,
+       pathRewrite: {
+        '^/hiworks': '' // URL ^/api -> 공백 변경
+        }
+    })
+  );
+
+  app.use(
+    '/slack',
+    createProxyMiddleware({
+      target: 'https://hooks.slack.com',
+      changeOrigin: true,
+       pathRewrite: {
+        '^/slack': '' // URL ^/api -> 공백 변경
+        }
     })
   );
 };
