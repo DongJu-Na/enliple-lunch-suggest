@@ -3,7 +3,13 @@
   "name": "enliple-lunch-suggest",
   "version": "0.1.0",
   "private": true,
+  "bugs": {
+    "url": "https://github.com/DongJu-Na/enliple-lunch-suggest",
+    "email": "djna@enliple.com"
+  },
+  "license": "MIT",
   "dependencies": {
+    "@inovua/reactdatagrid-community": "^5.8.1",
     "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
     "cra-template": "1.2.0",

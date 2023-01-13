@@ -22,4 +22,15 @@ module.exports = function(app) {
         }
     })
   );
+
+  app.use(
+    '/api',
+    createProxyMiddleware({
+      target: 'https://my-json-server.typicode.com',
+      changeOrigin: true,
+       pathRewrite: {
+        '^/api': '' // URL ^/api -> 공백 변경
+        }
+    })
+  );
 };

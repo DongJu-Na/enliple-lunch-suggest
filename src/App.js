@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import logo from './asset/enliple_logo.png';
-import data from './data/dataSet';
+import data , { data as dummyData} from './data/dataSet';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 import './App.css';
 import Swal from "sweetalert2";
+
+import Grid from './component/Grid';
 
 function App() {
   const [webUrl , setWebUrl] = useState('');
@@ -66,8 +68,7 @@ function App() {
         <div className="container-contact100">
             <div className="wrap-contact100">
                 <div className="contact100-pic js-tilt" data-tilt>
-                    <img src="https://i.imgur.com/VRFiMzM.png" alt="IMG" />
-                    <br/>
+                    <Grid data={data}/>
                 </div>
                 <form className="contact100-form validate-form" onSubmit={(e)=>{e.preventDefault()}}>
                     <span className="contact100-form-title">
