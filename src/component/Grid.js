@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import ReactDataGrid from '@inovua/reactdatagrid-community';
 import '@inovua/reactdatagrid-community/index.css';
@@ -8,6 +8,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function Grid({data}) {
+    const [selected, setSelected] = useState({});
+    
 
     useEffect(()=>{
 
@@ -20,6 +22,10 @@ function Grid({data}) {
     const delItem = () => {
 
     }
+
+    const onSelectionChange = useCallback(({ selected }) => {
+        setSelected(selected)
+      }, []);
 
 
     
@@ -46,6 +52,7 @@ function Grid({data}) {
                 dataSource={data}
                 style={gridStyle}
                 checkboxColumn={true}
+                onSelectionChange={onSelectionChange}
             />
         </div>
     )
